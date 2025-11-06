@@ -201,6 +201,7 @@
 
 <div class="w-full">
 	<h3 class="text-xl font-bold text-gray-800 mb-2 text-center">📈💎 Super Stable Peg Price 💎📈</h3>
+	<p class="text-sm text-purple-600 font-semibold mb-3 text-center">Loop and Never Get Liquidated 🔄💀</p>
 	<div bind:this={chartContainer} class="w-full"></div>
 	<p class="text-xs text-gray-500 text-center mt-2 italic">Simulated data. Not financial advice. It's a meme. 💀</p>
 </div>

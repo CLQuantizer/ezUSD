@@ -89,6 +89,37 @@
 	<title>ezUSD - The Meme Stablecoin</title>
 </svelte:head>
 
+<style>
+	@keyframes divine-glow {
+		0%, 100% {
+			box-shadow: 0 0 20px rgba(168, 85, 247, 0.6), 0 0 40px rgba(168, 85, 247, 0.4), 0 0 60px rgba(255, 255, 255, 0.3);
+		}
+		50% {
+			box-shadow: 0 0 30px rgba(168, 85, 247, 0.8), 0 0 60px rgba(168, 85, 247, 0.6), 0 0 90px rgba(255, 255, 255, 0.5);
+		}
+	}
+
+	@keyframes salient-pulse {
+		0%, 100% {
+			transform: scale(1);
+			box-shadow: 0 0 20px rgba(251, 191, 36, 0.8), 0 0 40px rgba(249, 115, 22, 0.6), 0 0 60px rgba(239, 68, 68, 0.5);
+		}
+		50% {
+			transform: scale(1.05);
+			box-shadow: 0 0 30px rgba(251, 191, 36, 1), 0 0 60px rgba(249, 115, 22, 0.8), 0 0 90px rgba(239, 68, 68, 0.7);
+		}
+	}
+
+	@keyframes divine-text-glow {
+		0%, 100% {
+			text-shadow: 0 0 10px rgba(251, 191, 36, 0.8), 0 0 20px rgba(249, 115, 22, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
+		}
+		50% {
+			text-shadow: 0 0 15px rgba(251, 191, 36, 1), 0 0 30px rgba(249, 115, 22, 0.8), 0 0 45px rgba(255, 255, 255, 0.6);
+		}
+	}
+</style>
+
 <div class="bg-gradient-to-br from-purple-600 via-purple-700 to-indigo-800 min-h-screen flex items-center justify-center p-5 relative">
 	<!-- Balance Display (Top Right - Sticky) -->
 	{#if account}
@@ -124,30 +155,37 @@
 	{/if}
 
 	<div class="bg-white rounded-3xl p-10 max-w-2xl w-full shadow-2xl">
-		<!-- Logo -->
-		<div class="w-48 h-48 mx-auto mb-8 rounded-full overflow-hidden border-4 border-purple-500 shadow-xl">
-			<img src="/ezusd.png" alt="ezUSD Logo" class="w-full h-full object-cover" />
-		</div>
-		
-		<!-- Header -->
-		<h1 class="text-5xl font-black text-gray-800 mb-2 text-center">ezUSD</h1>
-		<p class="text-2xl text-purple-600 font-bold mb-4 text-center">The Meme Stablecoin 🚀</p>
-		
-		<!-- APR Display -->
-		<div class="mb-8 text-center">
-			<div class="inline-block bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-white px-6 py-3 rounded-full shadow-lg border-4 border-yellow-300 animate-pulse">
-				<div class="text-xs sm:text-sm font-bold uppercase tracking-wider mb-1">🔥 CRAZY APR 🔥</div>
-				<div class="text-3xl sm:text-4xl font-black">38.8%</div>
+		<!-- Top Bar - 3 Column Grid -->
+		<div class="grid grid-cols-3 items-center gap-4 mb-6">
+			<!-- Logo - Left -->
+			<div class="w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden border-4 border-purple-500 shadow-xl mx-auto sm:mx-0 relative" style="box-shadow: 0 0 20px rgba(168, 85, 247, 0.6), 0 0 40px rgba(168, 85, 247, 0.4), 0 0 60px rgba(255, 255, 255, 0.3); animation: divine-glow 3s ease-in-out infinite;">
+				<img src="/ezusd.png" alt="ezUSD Logo" class="w-full h-full object-cover" />
+			</div>
+			
+			<!-- Header - Center -->
+			<div class="text-center">
+				<h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-gray-800 mb-0.5 leading-tight">ezUSD</h1>
+				<p class="text-[10px] sm:text-xs md:text-sm text-purple-600 font-bold leading-tight">The Meme Stablecoin 🚀</p>
+			</div>
+			
+			<!-- APR Display - Right -->
+			<div class="flex justify-end">
+				<div class="w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-white shadow-2xl border-4 border-yellow-300 transform hover:scale-110 transition-transform duration-300 flex flex-col items-center justify-center mx-auto sm:mx-0 relative" style="animation: salient-pulse 1.5s ease-in-out infinite;">
+					<div class="text-sm sm:text-base md:text-lg font-bold uppercase tracking-tight text-center leading-tight" style="animation: divine-text-glow 3s ease-in-out infinite;">💥 APR 💥</div>
+					<div class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-center leading-tight" style="animation: divine-text-glow 3s ease-in-out infinite;">38.8%</div>
+				</div>
 			</div>
 		</div>
 		
+		<!-- Content -->
+		<div>
 		<!-- Candlestick Chart -->
-		<div class="mb-8 bg-gray-50 rounded-xl p-6 border border-gray-200">
+		<div class="mb-6 bg-gray-50 rounded-xl p-4 sm:p-6 border border-gray-200">
 			<CandlestickChart />
 		</div>
 		
 		<!-- Features -->
-		<div class="bg-gray-50 rounded-xl p-6 mb-8">
+		<div class="bg-gray-50 rounded-xl p-4 sm:p-6 mb-6">
 			<h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">Why ezUSD? 🤔</h2>
 			<ul class="space-y-3">
 				<li class="flex items-center text-gray-700">
@@ -166,12 +204,12 @@
 		</div>
 		
 		<!-- Convert Component -->
-		<div class="mb-8">
+		<div class="mb-6">
 			<Convert />
 		</div>
 		
 		<!-- Scam Education Section -->
-		<div class="bg-red-50 border-2 border-red-300 rounded-xl p-6 mb-8">
+		<div class="bg-red-50 border-2 border-red-300 rounded-xl p-4 sm:p-6 mb-6">
 			<div class="flex items-start mb-4">
 				<span class="text-3xl mr-3">🚨</span>
 				<h2 class="text-2xl font-bold text-red-800">"Use ezUSD as Collateral on Morpho to Borrow USDT!"</h2>
@@ -254,6 +292,7 @@
 		<!-- Footer -->
 		<div class="mt-8 text-center text-gray-500 text-sm">
 			<p>© 2025 ezUSD. DYOR. NFA. This is not financial advice. It's a meme. Don't be a degen. 💀</p>
+		</div>
 		</div>
 	</div>
 </div>
