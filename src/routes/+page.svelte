@@ -31,16 +31,22 @@
 
 		try {
 			isLoadingBalances = true;
+			console.log('Fetching balances for:', account);
 			const response = await fetch(`/api/balance?address=${account}`);
 			const data = await response.json();
+			
+			console.log('Balance API response:', data);
 			
 			if (data.error) {
 				console.error('Error fetching balances:', data.error);
 				return;
 			}
 
-			usdtBalance = parseFloat(data.usdt.formatted).toFixed(6);
-			ezusdBalance = parseFloat(data.ezusd.formatted).toFixed(6);
+			if (data.usdt && data.ezusd) {
+				usdtBalance = parseFloat(data.usdt.formatted).toFixed(6);
+				ezusdBalance = parseFloat(data.ezusd.formatted).toFixed(6);
+				console.log('Balances updated - USDT:', usdtBalance, 'ezUSD:', ezusdBalance);
+			}
 		} catch (err) {
 			console.error('Error fetching balances:', err);
 		} finally {
@@ -53,6 +59,7 @@
 		if (!browser || !window.ethereum) return;
 
 		window.ethereum.on('accountsChanged', (accounts: string[]) => {
+			console.log('Accounts changed:', accounts);
 			if (accounts && accounts.length > 0) {
 				account = accounts[0];
 				fetchBalances();
@@ -65,9 +72,16 @@
 
 		// Listen for chain changes to refresh balances
 		window.ethereum.on('chainChanged', () => {
+			console.log('Chain changed, refreshing balances');
 			if (account) {
 				fetchBalances();
 			}
+		});
+
+		// Also listen for connect event
+		window.ethereum.on('connect', () => {
+			console.log('Wallet connected');
+			checkWalletConnection();
 		});
 	}
 
@@ -75,14 +89,30 @@
 		checkWalletConnection();
 		setupWalletListeners();
 		
+		// Also check periodically if account changed (in case Convert component connected)
+		const checkInterval = setInterval(() => {
+			if (browser && window.ethereum) {
+				window.ethereum.request({ method: 'eth_accounts' }).then((accounts: unknown) => {
+					const accs = accounts as string[];
+					if (accs && accs.length > 0 && accs[0] !== account) {
+						account = accs[0];
+						fetchBalances();
+					}
+				}).catch(console.error);
+			}
+		}, 2000);
+		
 		// Poll for balance updates every 10 seconds
-		const interval = setInterval(() => {
+		const balanceInterval = setInterval(() => {
 			if (account) {
 				fetchBalances();
 			}
 		}, 10000);
 
-		return () => clearInterval(interval);
+		return () => {
+			clearInterval(checkInterval);
+			clearInterval(balanceInterval);
+		};
 	});
 </script>
 
