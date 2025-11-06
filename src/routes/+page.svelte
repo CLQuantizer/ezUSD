@@ -1,3 +1,7 @@
+<script lang="ts">
+	import Convert from '$lib/Convert.svelte';
+</script>
+
 <svelte:head>
 	<title>ezUSD - The Meme Stablecoin</title>
 </svelte:head>
@@ -28,21 +32,18 @@
 				</li>
 				<li class="flex items-center text-gray-700">
 					<span class="text-purple-600 text-xl mr-3">✓</span>
-					Built on Solidity
-				</li>
-				<li class="flex items-center text-gray-700">
-					<span class="text-purple-600 text-xl mr-3">✓</span>
-					Community-driven meme culture
-				</li>
-				<li class="flex items-center text-gray-700">
-					<span class="text-purple-600 text-xl mr-3">✓</span>
 					Simple and transparent
 				</li>
 				<li class="flex items-center text-gray-700">
 					<span class="text-purple-600 text-xl mr-3">✓</span>
-					Made for the people, by the people
+					Purely educational (this is a meme)
 				</li>
 			</ul>
+		</div>
+		
+		<!-- Convert Component -->
+		<div class="mb-8">
+			<Convert />
 		</div>
 		
 		<!-- Scam Education Section -->
