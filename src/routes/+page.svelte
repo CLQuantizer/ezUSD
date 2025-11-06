@@ -229,7 +229,7 @@
 			<h3 class="text-lg font-bold text-gray-800 mb-4 text-center">Contract Addresses (For Your Due Diligence)</h3>
 			<div class="space-y-3 text-sm">
 				<div>
-					<p class="font-semibold text-gray-700 mb-1">Convert Contract:</p>
+					<p class="font-semibold text-gray-700 mb-1">Proof of reserve nothing(PORN):</p>
 					<p class="font-mono text-gray-600 break-all">0x1bd96ecb129d29ac2f69d0746c2386b9ba73d5ce</p>
 				</div>
 				<div>
