@@ -89,10 +89,22 @@
 </svelte:head>
 
 <div class="bg-gradient-to-br from-purple-600 via-purple-700 to-indigo-800 min-h-screen flex items-center justify-center p-5 relative">
-	<!-- Balance Display (Top Right) -->
+	<!-- Balance Display (Top Right - Sticky) -->
 	{#if account}
-		<div class="absolute top-5 right-5 bg-white/90 backdrop-blur-sm rounded-xl p-3 sm:p-4 shadow-lg border-2 border-purple-300 z-10 max-w-[200px] sm:max-w-none">
-			<div class="text-xs text-gray-600 mb-2 font-semibold">💸 Your Bags</div>
+		<div class="fixed top-5 right-5 bg-white/90 backdrop-blur-sm rounded-xl p-3 sm:p-4 shadow-lg border-2 border-purple-300 z-50 max-w-[200px] sm:max-w-none">
+			<div class="flex items-center justify-between mb-2">
+				<div class="text-xs text-gray-600 font-semibold">💸 Your Bags</div>
+				<button
+					onclick={fetchBalances}
+					disabled={isLoadingBalances}
+					class="text-purple-600 hover:text-purple-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+					title="Refresh balances"
+				>
+					<svg class="w-4 h-4 {isLoadingBalances ? 'animate-spin' : ''}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+					</svg>
+				</button>
+			</div>
 			<div class="space-y-1 text-xs sm:text-sm">
 				<div class="flex items-center justify-between gap-2 sm:gap-4">
 					<span class="text-gray-700 font-medium">USDT:</span>
