@@ -47,7 +47,6 @@ export const GET: RequestHandler = async ({ url }) => {
 	}
 
 	try {
-		console.log('Fetching balances for address:', address);
 		const publicClient = createPublicClient({
 			chain: mainnet,
 			transport: http(rpcUrl)
@@ -79,10 +78,7 @@ export const GET: RequestHandler = async ({ url }) => {
 			})
 		]);
 		
-		console.log('Raw balances - USDT:', usdtBalance.toString(), 'ezUSD:', ezusdBalance.toString());
-		console.log('Decimals - USDT:', usdtDecimals, 'ezUSD:', ezusdDecimals);
-		
-		const result = {
+		return json({
 			usdt: {
 				balance: usdtBalance.toString(),
 				formatted: formatUnits(usdtBalance, usdtDecimals),
@@ -93,14 +89,9 @@ export const GET: RequestHandler = async ({ url }) => {
 				formatted: formatUnits(ezusdBalance, ezusdDecimals),
 				decimals: Number(ezusdDecimals)
 			}
-		};
-		
-		console.log('Formatted balances - USDT:', result.usdt.formatted, 'ezUSD:', result.ezusd.formatted);
-		
-		return json(result);
+		});
 	} catch (error: any) {
-		console.error('Error fetching balances:', error);
-		return json({ error: error.message || 'Failed to fetch balances', details: error.toString() }, { status: 500 });
+		return json({ error: error.message || 'Failed to fetch balances' }, { status: 500 });
 	}
 };
 

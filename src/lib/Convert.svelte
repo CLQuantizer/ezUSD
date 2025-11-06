@@ -174,7 +174,14 @@
 	}
 
 	async function deposit() {
-		if (!signer || !usdtAddress) {
+		console.log('Deposit function called');
+		console.log('signer:', signer);
+		console.log('usdtAddress:', usdtAddress);
+		console.log('depositAmount:', depositAmount);
+		
+		if (!signer || !usdtAddress || !ezusdAddress) {
+			const msg = !signer ? 'Signer not available' : !usdtAddress ? 'USDT address not loaded' : 'ezUSD address not loaded';
+			console.error('Cannot deposit:', msg);
 			error = 'Please connect your wallet first';
 			return;
 		}
@@ -182,6 +189,7 @@
 		// Validate amount
 		const validation = validateAmount(depositAmount);
 		if (!validation.valid) {
+			console.error('Validation failed:', validation.error);
 			error = validation.error || 'Invalid amount';
 			return;
 		}
@@ -193,25 +201,64 @@
 
 			// Ensure parseUnits gets a string
 			const amount = ethers.parseUnits(String(depositAmount), 6); // USDT has 6 decimals
+			console.log('Parsed amount:', amount.toString());
+			
+			// Check contract's ezUSD balance before attempting deposit
+			if (provider) {
+				const convertContract = new ethers.Contract(CONVERT_CONTRACT, CONVERT_ABI, provider);
+				const contractEzUSDBalance = await convertContract.getEzUSDBalance();
+				console.log('Contract ezUSD balance:', contractEzUSDBalance.toString());
+				
+				if (contractEzUSDBalance < amount) {
+					const formattedBalance = ethers.formatUnits(contractEzUSDBalance, 6);
+					error = `Contract has insufficient ezUSD balance (${formattedBalance} ezUSD available, ${depositAmount} requested). The contract needs to be funded with ezUSD tokens first.`;
+					isDepositing = false;
+					return;
+				}
+			}
 			
 			// Check and approve USDT if needed
+			console.log('Checking approval...');
 			const isApproved = await checkApproval(usdtAddress, amount);
+			console.log('Is approved:', isApproved);
+			
 			if (!isApproved) {
 				success = 'Approving USDT...';
+				console.log('Approving USDT...');
 				await approveToken(usdtAddress, amount);
+				console.log('Approval complete');
 			}
 
 			// Deposit
 			success = 'Depositing USDT...';
+			console.log('Calling deposit contract...');
 			const convertContract = new ethers.Contract(CONVERT_CONTRACT, CONVERT_ABI, signer);
 			const tx = await convertContract.deposit(amount);
+			console.log('Transaction hash:', tx.hash);
 			success = 'Transaction submitted! Waiting for confirmation...';
-			await tx.wait();
+			const receipt = await tx.wait();
+			console.log('Transaction confirmed:', receipt);
 			
 			success = `Successfully deposited ${depositAmount} USDT and received ${depositAmount} ezUSD!`;
 			depositAmount = '';
 		} catch (err: any) {
-			error = err.message || 'Deposit failed';
+			console.error('Deposit error:', err);
+			console.error('Error message:', err.message);
+			console.error('Error code:', err.code);
+			console.error('Error data:', err.data);
+			
+			// Better error messages
+			if (err.message?.includes('ezUSD transfer failed')) {
+				error = 'Contract has insufficient ezUSD balance. The contract needs to be funded with ezUSD tokens before deposits can be processed.';
+			} else if (err.message?.includes('USDT transfer failed')) {
+				error = 'USDT transfer failed. Make sure you have enough USDT and have approved the contract.';
+			} else if (err.reason) {
+				error = err.reason;
+			} else if (err.message) {
+				error = err.message;
+			} else {
+				error = 'Deposit failed. Please check the console for details.';
+			}
 			success = null;
 		} finally {
 			isDepositing = false;
@@ -343,12 +390,25 @@
 			<div class="text-center">
 				<button
 					type="button"
-					onclick={deposit}
+					onclick={() => {
+						console.log('Button clicked');
+						console.log('account:', account);
+						console.log('isDepositing:', isDepositing);
+						console.log('depositAmount:', depositAmount);
+						console.log('validation:', validateAmount(depositAmount));
+						deposit();
+					}}
 					disabled={!account || isDepositing || !depositAmount || !validateAmount(depositAmount).valid}
 					class="bg-gradient-to-r from-red-600 to-orange-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
 				>
 					{isDepositing ? '⏳ Processing...' : '💀 Deposit USDT (Scam Button) 💀'}
 				</button>
+				{#if !account}
+					<p class="text-xs text-red-500 mt-2">Please connect your wallet</p>
+				{/if}
+				{#if account && (!depositAmount || !validateAmount(depositAmount).valid)}
+					<p class="text-xs text-red-500 mt-2">Enter a valid amount (1-10)</p>
+				{/if}
 			</div>
 		</div>
 	</div>
