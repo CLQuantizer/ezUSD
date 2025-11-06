@@ -209,7 +209,7 @@
 			<div class="space-y-3 text-sm">
 				<div>
 					<p class="font-semibold text-gray-700 mb-1">Convert Contract:</p>
-					<p class="font-mono text-gray-600 break-all">0xD63BF3E091E74fB5077982080cF3D7B64d1149fa</p>
+					<p class="font-mono text-gray-600 break-all">0x1bd96ecb129d29ac2f69d0746c2386b9ba73d5ce</p>
 				</div>
 				<div>
 					<p class="font-semibold text-gray-700 mb-1">ezUSD Contract:</p>
