@@ -165,7 +165,7 @@
 			<!-- Header - Center -->
 			<div class="text-center">
 				<h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-gray-800 mb-0.5 leading-tight">ezUSD</h1>
-				<p class="text-[10px] sm:text-xs md:text-sm text-purple-600 font-bold leading-tight">The Meme Stablecoin 🚀</p>
+				<p class="text-[10px] sm:text-xs md:text-sm text-gray-400 font-bold leading-tight">another stablecoin except this one is EZ 🚀</p>
 			</div>
 			
 			<!-- APR Display - Right -->
