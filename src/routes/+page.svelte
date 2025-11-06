@@ -130,7 +130,15 @@
 		
 		<!-- Header -->
 		<h1 class="text-5xl font-black text-gray-800 mb-2 text-center">ezUSD</h1>
-		<p class="text-2xl text-purple-600 font-bold mb-8 text-center">The Meme Stablecoin 🚀</p>
+		<p class="text-2xl text-purple-600 font-bold mb-4 text-center">The Meme Stablecoin 🚀</p>
+		
+		<!-- APR Display -->
+		<div class="mb-8 text-center">
+			<div class="inline-block bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-white px-6 py-3 rounded-full shadow-lg border-4 border-yellow-300 animate-pulse">
+				<div class="text-xs sm:text-sm font-bold uppercase tracking-wider mb-1">🔥 CRAZY APR 🔥</div>
+				<div class="text-3xl sm:text-4xl font-black">38.8%</div>
+			</div>
+		</div>
 		
 		<!-- Description -->
 		<div class="text-gray-600 text-lg leading-relaxed mb-8">
