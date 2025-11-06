@@ -92,7 +92,7 @@
 	<!-- Balance Display (Top Right) -->
 	{#if account}
 		<div class="absolute top-5 right-5 bg-white/90 backdrop-blur-sm rounded-xl p-3 sm:p-4 shadow-lg border-2 border-purple-300 z-10 max-w-[200px] sm:max-w-none">
-			<div class="text-xs text-gray-600 mb-2 font-semibold">Your Balances</div>
+			<div class="text-xs text-gray-600 mb-2 font-semibold">💸 Your Bags</div>
 			<div class="space-y-1 text-xs sm:text-sm">
 				<div class="flex items-center justify-between gap-2 sm:gap-4">
 					<span class="text-gray-700 font-medium">USDT:</span>
@@ -118,28 +118,29 @@
 		
 		<!-- Header -->
 		<h1 class="text-5xl font-black text-gray-800 mb-2 text-center">ezUSD</h1>
-		<p class="text-2xl text-purple-600 font-bold mb-8 text-center">The Meme Stablecoin</p>
+		<p class="text-2xl text-purple-600 font-bold mb-8 text-center">The Meme Stablecoin 🚀</p>
 		
 		<!-- Description -->
 		<div class="text-gray-600 text-lg leading-relaxed mb-8">
-			<p>Welcome to <strong class="text-gray-800">ezUSD</strong>, the meme stablecoin that's taking the crypto world by storm! Born from the fusion of memes and decentralized finance, ezUSD brings a fresh perspective to stablecoins.</p>
+			<p>Another day, another stablecoin. But this one's <strong class="text-gray-800">ez</strong> 🎯</p>
+			<p class="mt-3">Swap USDT for ezUSD. Swap ezUSD for USDT. It's that simple. No roadmap. No utility. Just vibes and a 1:1 peg (probably).</p>
 		</div>
 		
 		<!-- Features -->
 		<div class="bg-gray-50 rounded-xl p-6 mb-8">
-			<h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">Why ezUSD?</h2>
+			<h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">Why ezUSD? 🤔</h2>
 			<ul class="space-y-3">
 				<li class="flex items-center text-gray-700">
-					<span class="text-purple-600 text-xl mr-3">✓</span>
-					ERC-20 compliant token
+					<span class="text-purple-600 text-xl mr-3">💀</span>
+					It's an ERC-20 token (wow, revolutionary)
 				</li>
 				<li class="flex items-center text-gray-700">
-					<span class="text-purple-600 text-xl mr-3">✓</span>
-					Simple and transparent
+					<span class="text-purple-600 text-xl mr-3">💀</span>
+					You can use it as collateral on Morpho (don't)
 				</li>
 				<li class="flex items-center text-gray-700">
-					<span class="text-purple-600 text-xl mr-3">✓</span>
-					Purely educational (this is a meme)
+					<span class="text-purple-600 text-xl mr-3">💀</span>
+					It's a meme coin (this is not financial advice)
 				</li>
 			</ul>
 		</div>
@@ -157,32 +158,32 @@
 			</div>
 			<div class="bg-white rounded-lg p-4 mb-4 border-l-4 border-yellow-400">
 				<p class="text-gray-700 text-sm mb-2 italic">"This is what every shit stablecoin project says..."</p>
-				<p class="font-bold text-red-600">⚠️ EDUCATIONAL MOMENT ⚠️</p>
+				<p class="font-bold text-red-600">⚠️ WAKE UP CALL ⚠️</p>
 			</div>
 			<div class="space-y-3 text-gray-700">
-				<p class="font-semibold text-red-700">Here's why this is a classic scam tactic:</p>
+				<p class="font-semibold text-red-700">Why this is peak degen behavior (and not in a good way):</p>
 				<ul class="space-y-2 text-sm">
 					<li class="flex items-start">
-						<span class="text-red-500 mr-2">•</span>
-						<span><strong>Circular Logic:</strong> You deposit their worthless token to borrow real USDT. But if the token crashes (it will), you get liquidated. They win, you lose.</span>
+						<span class="text-red-500 mr-2">💀</span>
+						<span><strong>Circular Logic:</strong> You deposit their worthless token to borrow real USDT. Token crashes (it will), you get liquidated. They win, you lose. Simple math.</span>
 					</li>
 					<li class="flex items-start">
-						<span class="text-red-500 mr-2">•</span>
-						<span><strong>False Legitimacy:</strong> Listing on Morpho doesn't mean the token has value. It just means someone added it to the protocol.</span>
+						<span class="text-red-500 mr-2">💀</span>
+						<span><strong>False Legitimacy:</strong> Being on Morpho doesn't mean shit. It just means someone added it. That's it. No validation. No nothing.</span>
 					</li>
 					<li class="flex items-start">
-						<span class="text-red-500 mr-2">•</span>
-						<span><strong>Liquidation Trap:</strong> Low liquidity + high volatility = you're getting liquidated faster than you can say "but the roadmap said..."</span>
+						<span class="text-red-500 mr-2">💀</span>
+						<span><strong>Liquidation Trap:</strong> Low liquidity + high volatility = you're getting rekt faster than you can say "but the roadmap said..."</span>
 					</li>
 					<li class="flex items-start">
-						<span class="text-red-500 mr-2">•</span>
-						<span><strong>Exit Strategy:</strong> They dump their tokens, price crashes, your collateral becomes worthless, the protocol liquidates you. Game over.</span>
+						<span class="text-red-500 mr-2">💀</span>
+						<span><strong>Exit Strategy:</strong> They dump, price goes to zero, your collateral is worthless, protocol liquidates you. GG no re.</span>
 					</li>
 				</ul>
 			</div>
 			<div class="mt-4 p-3 bg-yellow-100 rounded-lg border border-yellow-300">
 				<p class="text-sm text-yellow-800 font-semibold">
-					💡 <strong>Real Talk:</strong> If you see a project bragging about being "usable as collateral" without having established liquidity, price stability, or actual utility... that's your red flag. 🚩
+					💡 <strong>Real Talk:</strong> If a project brags about being "usable as collateral" without liquidity, stability, or utility... that's your red flag. 🚩 Don't be that degen.
 				</p>
 			</div>
 			<div class="mt-4 text-center">
@@ -199,13 +200,13 @@
 		<!-- CTA -->
 		<div class="text-center">
 			<a href="https://app.morpho.org/ethereum/market/0x44e1d6d8c57a522dafc54b6466a4a9377eb1413d68e79cf162abdf15d5f2c36c/ezusd-usdt" class="inline-block bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-				Borrow against ezUSD
+				💀 Borrow against ezUSD (don't) 💀
 			</a>
 		</div>
 		
 		<!-- Contract Addresses -->
 		<div class="mt-8 bg-gray-50 rounded-xl p-6 border border-gray-200">
-			<h3 class="text-lg font-bold text-gray-800 mb-4 text-center">Contract Addresses (For Transparency)</h3>
+			<h3 class="text-lg font-bold text-gray-800 mb-4 text-center">Contract Addresses (For Your Due Diligence)</h3>
 			<div class="space-y-3 text-sm">
 				<div>
 					<p class="font-semibold text-gray-700 mb-1">Convert Contract:</p>
@@ -232,7 +233,7 @@
 		
 		<!-- Footer -->
 		<div class="mt-8 text-center text-gray-500 text-sm">
-			<p>© 2025 ezUSD. All rights reserved. DYOR. NFA. This is not financial advice. It's a meme.</p>
+			<p>© 2025 ezUSD. DYOR. NFA. This is not financial advice. It's a meme. Don't be a degen. 💀</p>
 		</div>
 	</div>
 </div>
