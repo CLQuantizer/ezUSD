@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Convert from '$lib/Convert.svelte';
+	import CandlestickChart from '$lib/CandlestickChart.svelte';
 	import { onMount } from 'svelte';
 	import { browser } from '$app/environment';
 
@@ -140,10 +141,9 @@
 			</div>
 		</div>
 		
-		<!-- Description -->
-		<div class="text-gray-600 text-lg leading-relaxed mb-8">
-			<p>Another day, another stablecoin. But this one's <strong class="text-gray-800">ez</strong> 🎯</p>
-			<p class="mt-3">Swap USDT for ezUSD. Swap ezUSD for USDT. It's that simple. No roadmap. No utility. Just vibes and a 1:1 peg (probably).</p>
+		<!-- Candlestick Chart -->
+		<div class="mb-8 bg-gray-50 rounded-xl p-6 border border-gray-200">
+			<CandlestickChart />
 		</div>
 		
 		<!-- Features -->
