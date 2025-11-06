@@ -1,2 +1,107 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<svelte:head>
+	<title>ezUSD - The Meme Stablecoin</title>
+</svelte:head>
+
+<div class="bg-gradient-to-br from-purple-600 via-purple-700 to-indigo-800 min-h-screen flex items-center justify-center p-5">
+	<div class="bg-white rounded-3xl p-10 max-w-2xl w-full shadow-2xl">
+		<!-- Logo -->
+		<div class="w-48 h-48 mx-auto mb-8 rounded-full overflow-hidden border-4 border-purple-500 shadow-xl">
+			<img src="/ezusd.png" alt="ezUSD Logo" class="w-full h-full object-cover" />
+		</div>
+		
+		<!-- Header -->
+		<h1 class="text-5xl font-black text-gray-800 mb-2 text-center">ezUSD</h1>
+		<p class="text-2xl text-purple-600 font-bold mb-8 text-center">The Meme Stablecoin</p>
+		
+		<!-- Description -->
+		<div class="text-gray-600 text-lg leading-relaxed mb-8">
+			<p>Welcome to <strong class="text-gray-800">ezUSD</strong>, the meme stablecoin that's taking the crypto world by storm! Born from the fusion of memes and decentralized finance, ezUSD brings a fresh perspective to stablecoins.</p>
+		</div>
+		
+		<!-- Features -->
+		<div class="bg-gray-50 rounded-xl p-6 mb-8">
+			<h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">Why ezUSD?</h2>
+			<ul class="space-y-3">
+				<li class="flex items-center text-gray-700">
+					<span class="text-purple-600 text-xl mr-3">✓</span>
+					ERC-20 compliant token
+				</li>
+				<li class="flex items-center text-gray-700">
+					<span class="text-purple-600 text-xl mr-3">✓</span>
+					Built on Solidity
+				</li>
+				<li class="flex items-center text-gray-700">
+					<span class="text-purple-600 text-xl mr-3">✓</span>
+					Community-driven meme culture
+				</li>
+				<li class="flex items-center text-gray-700">
+					<span class="text-purple-600 text-xl mr-3">✓</span>
+					Simple and transparent
+				</li>
+				<li class="flex items-center text-gray-700">
+					<span class="text-purple-600 text-xl mr-3">✓</span>
+					Made for the people, by the people
+				</li>
+			</ul>
+		</div>
+		
+		<!-- Scam Education Section -->
+		<div class="bg-red-50 border-2 border-red-300 rounded-xl p-6 mb-8">
+			<div class="flex items-start mb-4">
+				<span class="text-3xl mr-3">🚨</span>
+				<h2 class="text-2xl font-bold text-red-800">"Use ezUSD as Collateral on Morpho to Borrow USDT!"</h2>
+			</div>
+			<div class="bg-white rounded-lg p-4 mb-4 border-l-4 border-yellow-400">
+				<p class="text-gray-700 text-sm mb-2 italic">"This is what every shit stablecoin project says..."</p>
+				<p class="font-bold text-red-600">⚠️ EDUCATIONAL MOMENT ⚠️</p>
+			</div>
+			<div class="space-y-3 text-gray-700">
+				<p class="font-semibold text-red-700">Here's why this is a classic scam tactic:</p>
+				<ul class="space-y-2 text-sm">
+					<li class="flex items-start">
+						<span class="text-red-500 mr-2">•</span>
+						<span><strong>Circular Logic:</strong> You deposit their worthless token to borrow real USDT. But if the token crashes (it will), you get liquidated. They win, you lose.</span>
+					</li>
+					<li class="flex items-start">
+						<span class="text-red-500 mr-2">•</span>
+						<span><strong>False Legitimacy:</strong> Listing on Morpho doesn't mean the token has value. It just means someone added it to the protocol.</span>
+					</li>
+					<li class="flex items-start">
+						<span class="text-red-500 mr-2">•</span>
+						<span><strong>Liquidation Trap:</strong> Low liquidity + high volatility = you're getting liquidated faster than you can say "but the roadmap said..."</span>
+					</li>
+					<li class="flex items-start">
+						<span class="text-red-500 mr-2">•</span>
+						<span><strong>Exit Strategy:</strong> They dump their tokens, price crashes, your collateral becomes worthless, the protocol liquidates you. Game over.</span>
+					</li>
+				</ul>
+			</div>
+			<div class="mt-4 p-3 bg-yellow-100 rounded-lg border border-yellow-300">
+				<p class="text-sm text-yellow-800 font-semibold">
+					💡 <strong>Real Talk:</strong> If you see a project bragging about being "usable as collateral" without having established liquidity, price stability, or actual utility... that's your red flag. 🚩
+				</p>
+			</div>
+			<div class="mt-4 text-center">
+				<p class="text-gray-600 text-xs italic">
+					Yes, ezUSD is technically usable as collateral on Morpho to borrow USDT. 
+					<br class="sm:hidden" />
+					<span class="font-bold text-red-600">No, you probably shouldn't do that.</span>
+					<br />
+					This is a meme coin. Treat it like one. 🎭
+				</p>
+			</div>
+		</div>
+		
+		<!-- CTA -->
+		<div class="text-center">
+			<a href="https://app.morpho.org/ethereum/market/0x44e1d6d8c57a522dafc54b6466a4a9377eb1413d68e79cf162abdf15d5f2c36c/ezusd-usdt" class="inline-block bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+				Get Started with ezUSD
+			</a>
+		</div>
+		
+		<!-- Footer -->
+		<div class="mt-8 text-center text-gray-500 text-sm">
+			<p>© 2025 ezUSD. All rights reserved. DYOR. NFA. This is not financial advice. It's a meme.</p>
+		</div>
+	</div>
+</div>
